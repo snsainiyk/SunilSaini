@@ -62,8 +62,8 @@ export class ProductService {
       id: 5,
       name: 'Assorted Chocolate Collection',
       description: 'A beautiful selection of our finest chocolates. Includes dark, cardamom, and Jaggery with various fillings Like Nuts & Fruits.',
-      mrp: 615,
-      price: 400,
+      mrp: 400,
+      price: 260,
       Weight: '100g',
       category: 'Gift Box',
       images: [
