@@ -1,0 +1,68 @@
+<div class="products-container">
+  <section class="products-header">
+    <h1>Our Premium Chocolates</h1>
+    <p>Discover our exquisite collection of handcrafted chocolates</p>
+  </section>
+
+  <section class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image-container">
+        <img [src]="getCurrentImage(product)" [alt]="product.name" class="product-image">
+        <div class="image-nav" *ngIf="product.images.length > 1">
+          <button class="nav-btn prev" (click)="prevImage(product.id)">‹</button>
+          <button class="nav-btn next" (click)="nextImage(product.id)">›</button>
+        </div>
+        <div class="image-dots" *ngIf="product.images.length > 1">
+          <span 
+            class="dot" 
+            *ngFor="let img of product.images; let i = index"
+            [class.active]="currentImageIndex[product.id] === i">
+          </span>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div class="product-category">{{ product.category }}</div>
+        
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        
+        <!-- <div class="product-rating">
+          <span class="stars">
+            <span 
+              *ngFor="let star of getStars(product.rating)" 
+              [class.filled]="star === '★'">
+              {{ star }}
+            </span>
+          </span>
+          <span class="rating-value">{{ product.rating }}</span>
+        </div> -->
+        <div class="product-weight">Weight: {{ product.Weight }}</div>
+
+        <div class="product-footer">
+          <div class="price-container">
+            <div class="product-mrp">₹{{ product.mrp.toFixed(2) }}</div>
+            <div class="product-price">₹{{ product.price.toFixed(2) }}</div>
+            <div class="discount-badge">35% OFF</div>
+          </div>
+          <button class="btn-order" (click)="orderProduct(product)">
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-card">
+      <h2>Custom Orders Welcome!</h2>
+      <p>Need a special chocolate arrangement or have specific requirements?</p>
+      <a href="https://wa.me/6005319153?text=Hi,%20I%20would%20like%20to%20discuss%20a%20custom%20order" 
+         target="_blank" 
+         class="btn btn-whatsapp-large">
+        <span class="whatsapp-icon">📱</span> Contact Us on WhatsApp
+      </a>
+      <p class="contact-note">We respond within 24 hours</p>
+    </div>
+  </section>
+</div>
