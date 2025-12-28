@@ -65,7 +65,7 @@ export class Products implements OnInit {
 
   orderProduct(product: Product): void {
     const message = `Hi, I would like to order ${product.name} - ${product.price} Rs.`;
-    const whatsappUrl = `https://wa.me/916005319153?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/919929200200?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }
 
